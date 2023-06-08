@@ -80,7 +80,7 @@ async function run() {
       res.send(result)
     })
 
-    app.post('/users', varifyJWT, varifyAdmin, async (req, res) => {
+    app.post('/users', varifyJWT, async (req, res) => {
       const user = req.body;
       const query = { email: user.email }
       const existingUser = await usersCollection.findOne(query)
